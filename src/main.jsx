@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { ThemeProvider } from 'styled-components';
-import {useState} from 'react';
+import { useState } from 'react';
 // imort style components
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
@@ -26,27 +26,27 @@ const router = (setLoading) => createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home/>
+        element: <Home />
       }
     ]
   },
 ]);
 
 
-function Root(){
-  const[loading,setLoading] = useState(true);
+function Root() {
+  const [loading, setLoading] = useState(true);
 
 
-  return(
+  return (
     <React.StrictMode>
       <ThemeProvider theme={theme}>
-        {loading ?     
+        {loading ?
           <Box sx={{ display: 'flex' }}>
             <CircularProgress />
-          </Box> 
-          : 
-          null 
-          }
+          </Box>
+          :
+          null
+        }
         <RouterProvider router={router(setLoading)} />
       </ThemeProvider>
     </React.StrictMode>
@@ -54,4 +54,4 @@ function Root(){
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Root/>)
+root.render(<Root />)

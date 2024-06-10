@@ -1,4 +1,4 @@
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,24 +6,25 @@ const Background = styled.div`
   background: ${({ theme }) => theme.colors.primary};
   height: 100vh;
   width: 100%;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.third};
   position: fixed;
   top: 0;
   left: 0;
   z-index: 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.8rem;
   justify-content: center;
   align-items: center;
   text-align: center;
   &.active {
     z-index: 1;
     background: ${({ theme }) => theme.colors.background};
-    padding-top: 5rem;
+    padding-top: 4rem;
     justify-content: start;
     font-size: 1.2rem;
     text-align: left;
+    backdrop-filter: blur(20px);
   }
 `;
 
@@ -38,7 +39,7 @@ const MobileNav = styled.header`
   z-index: 2;
 `;
 
-const NavNormal = styled.header`
+const DesktopNav = styled.header`
   position: fixed;
   margin-top: 0.6rem;
   padding: 0.4rem 1.2rem;
@@ -53,21 +54,30 @@ const NavNormal = styled.header`
 const ButtonOutlined = styled.button`
   font-size: 1.4rem;
   padding: 0.6rem 1.2rem;
-  border: solid ${({ theme }) => theme.colors.text} 1px;
-  color: ${({ theme }) => theme.colors.text};
+  border: solid ${({ theme }) => theme.colors.third} 1px;
+  color: ${({ theme }) => theme.colors.third};
   background: none;
   border-radius: 5px;
   z-index: 1;
+  &:hover{
+    border: solid ${({ theme }) => theme.colors.hoverBackground} 1px;
+    color : ${({ theme }) => theme.colors.hoverBackground};
+    cursor:pointer;
+  }
 `;
 
 const ButtonContained = styled.button`
   font-size: 1.4rem;
   padding: 0.6rem 1.2rem;
-  color: ${({ theme }) => theme.colors.buttonText};
+  color: ${({ theme }) => theme.colors.third};
   background: ${({ theme }) => theme.colors.secondary};
   border-radius: 5px;
-  border: solid ${({ theme }) => theme.colors.border} 1px;
+  border: solid ${({ theme }) => theme.colors.third} 1px;
   z-index: 1;
+  &:hover{
+    background: ${({ theme }) => theme.colors.hoverBackground};
+    color:white;
+  }
 `;
 
 const Container = styled.div`
@@ -79,7 +89,7 @@ const Container = styled.div`
 const Line = styled.div`
   height: 3px;
   width: 25px;
-  background: ${({ theme }) => theme.colors.text};
+  background: ${({ theme }) => theme.colors.third};
   transition: transform 0.3s; /* Add transition for smooth rotation */
 `;
 
@@ -101,17 +111,36 @@ const CenterLine = styled(Line)`
   }
 `;
 
+// Define styled components
+const StyledList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+`;
+
+const StyledListItem = styled.li`
+  border-bottom: 1px solid white;
+  padding-left: 1.3rem;
+  transition: 0.3s;
+  &:hover{
+    border-color:${({ theme }) => theme.colors.hoverBackground};
+    margin-left:2rem;
+  }
+`;
+
+
 const Item = styled.div`
   position: relative;
-  height: 30px;
-  & > a {
-    margin: 0.6rem 0.8rem;
+  color: ${({ theme }) => theme.colors.third};
+  & > button {
+    margin: 0.5rem 0.8rem;
   }
   & > div {
     position: absolute;
     height: 3px;
     width: 100%;
-    background: ${({ theme }) => theme.colors.text};
+    background: ${({ theme }) => theme.colors.third};
     transition: 0.5s;
   }
   & > div.left {
@@ -119,8 +148,11 @@ const Item = styled.div`
     bottom: 0;
   }
   & > div.right {
-    top: 0;
+    bottom: 0;
     right: 0;
+  }
+  &:hover {
+    color: ${({ theme }) => theme.colors.hoverBackground};
   }
   &:hover div {
     background: ${({ theme }) => theme.colors.hoverBackground};
@@ -162,6 +194,7 @@ export default function Header() {
   return (
     <>
       <div style={{ padding: '0.1rem', width: '100%' }}>
+        {/* if it is mobile display the mobile header else display the desktop header */}
         {mobile ? (
           <MobileNav>
             <Container onClick={() => clickMenuResponsive()}>
@@ -174,7 +207,7 @@ export default function Header() {
             </ButtonOutlined>
           </MobileNav>
         ) : (
-          <NavNormal>
+          <DesktopNav>
             <div
               style={{
                 display: 'flex',
@@ -186,61 +219,41 @@ export default function Header() {
             >
               <Item>
                 <div className="left"></div>
-                <Link to="#">Home</Link>
+                <button><Link to="#">Home</Link></button>
                 <div className="right"></div>
               </Item>
               <Item>
-                <Link to="#">Home</Link>
+                <div className="left"></div>
+                <button><Link to="#">About Me</Link></button>
+                <div className="right"></div>
               </Item>
               <Item>
-                <Link to="#">Home</Link>
+                <div className="left"></div>
+                <button><Link to="#">Contact Me</Link></button>
+                <div className="right"></div>
               </Item>
             </div>
             <ButtonOutlined style={{ borderRadius: '50px', fontSize: '1rem' }}>
               <Link to="#">Contact Me</Link>
             </ButtonOutlined>
-          </NavNormal>
+          </DesktopNav>
         )}
       </div>
+      {/* if isActive and mobile display the mobile menu */}
       {isActive && mobile ? (
         <Background className="active">
-          <ul
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '2rem',
-              alignItems: 'center',
-            }}
-          >
-            <li
-              style={{
-                borderBottom: '1px solid white',
-                paddingLeft: '1.3rem',
-              }}
-            >
-              Home
-            </li>
-            <li
-              style={{
-                borderBottom: '1px solid white',
-                paddingLeft: '1.3rem',
-              }}
-            >
-              Contact me
-            </li>
-            <li
-              style={{
-                borderBottom: '1px solid white',
-                paddingLeft: '1.3rem',
-              }}
-            >
-              Services
-            </li>
-          </ul>
+          <StyledList>
+            <StyledListItem>Home</StyledListItem>
+            <StyledListItem>Contact me</StyledListItem>
+            <StyledListItem>Services</StyledListItem>
+          </StyledList>
         </Background>
       ) : null}
       <Background>
         <h1>Full Stack Web Developpement And Responsive Design</h1>
+        <p style={{ fontWeight: 'bold', width: '80%', marginBottom: '2rem' }}>
+          Hey there! I'm a full-stack developer who loves bringing ideas to life. I can handle everything from designing in Figma and managing tasks in Jira to coding with tools like .NET, Laravel, Express, React, and Vue. I make sure the project fits the budget and gets smoothly hosted and live for everyone to see. Let's build something awesome together!
+        </p>
         <ButtonOutlined>
           <Link to="#">My Projects</Link>
         </ButtonOutlined>

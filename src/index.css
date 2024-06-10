@@ -20,3 +20,9 @@ li{
     width: 90%;
     padding: 1.2rem 0.6rem;
 }
+button{
+    background:none;
+    border:none;
+    color:inherit;
+    font-size:inherit;
+}

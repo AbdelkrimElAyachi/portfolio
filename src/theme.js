@@ -1,13 +1,11 @@
 // theme.js
 export const theme = {
   colors: {
-    primary: 'orange',
-    secondary: 'white',
-    background: 'rgba(0,0,0,0.5)',
-    hoverBackground: '#FF5800',
-    text: 'white',
-    buttonText: 'orange',
-    border: 'orange',
+    primary: 'white',
+    secondary: '#ccc',
+    background: 'rgba(0,20,20,0.4)',
+    hoverBackground: '#00CCCC',
+    third: '#333',
     mobileNavBg: 'orange',
   },
 };
