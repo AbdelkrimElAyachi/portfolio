@@ -1,18 +1,27 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import Header from "../components/Header.jsx";
-import {Outlet} from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import PageLoading from "../components/PageLoading.jsx";
 
+export default function App({ setLoading, loading }) {
 
-export default function App({setLoading}){
-
-  useEffect(()=>{
-    setLoading(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 100);
   });
 
   return (
     <>
-      <Header />
-      <Outlet/>
+      {loading ?
+        <PageLoading />
+        :
+        <>
+          <Header />
+          <Outlet />
+        </>
+      }
+
     </>
   );
 }

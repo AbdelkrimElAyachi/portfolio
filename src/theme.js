@@ -1,5 +1,16 @@
 // theme.js
-export const theme = {
+export const darkTheme = {
+  colors: {
+    primary: '#000',
+    secondary: '#666',
+    background: 'rgba(225,255,255,0.4)',
+    hoverBackground: '#00CCCC',
+    third: '#fff',
+    mobileNavBg: 'orange',
+  },
+};
+
+export const lightTheme = {
   colors: {
     primary: 'white',
     secondary: '#ccc',

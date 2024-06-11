@@ -18,7 +18,7 @@ const Background = styled.div`
   align-items: center;
   text-align: center;
   &.active {
-    z-index: 1;
+    z-index: 2;
     background: ${({ theme }) => theme.colors.background};
     padding-top: 4rem;
     justify-content: start;
@@ -36,7 +36,7 @@ const MobileNav = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 2;
+  z-index: 3;
 `;
 
 const DesktopNav = styled.header`
@@ -123,6 +123,7 @@ const StyledListItem = styled.li`
   border-bottom: 1px solid white;
   padding-left: 1.3rem;
   transition: 0.3s;
+  color: ${({ theme }) => theme.colors.third};
   &:hover{
     border-color:${({ theme }) => theme.colors.hoverBackground};
     margin-left:2rem;
@@ -232,6 +233,11 @@ export default function Header() {
                 <button><Link to="#">Contact Me</Link></button>
                 <div className="right"></div>
               </Item>
+              <Item>
+                <div className="left"></div>
+                <button><Link to="#">My Projects</Link></button>
+                <div className="right"></div>
+              </Item>
             </div>
             <ButtonOutlined style={{ borderRadius: '50px', fontSize: '1rem' }}>
               <Link to="#">Contact Me</Link>
@@ -243,9 +249,10 @@ export default function Header() {
       {isActive && mobile ? (
         <Background className="active">
           <StyledList>
-            <StyledListItem>Home</StyledListItem>
-            <StyledListItem>Contact me</StyledListItem>
-            <StyledListItem>Services</StyledListItem>
+            <StyledListItem><Link to="#">Home</Link></StyledListItem>
+            <StyledListItem><Link to="#">Contact me</Link></StyledListItem>
+            <StyledListItem><Link to="#">Services</Link></StyledListItem>
+            <StyledListItem><Link too="#">My Projects</Link></StyledListItem>
           </StyledList>
         </Background>
       ) : null}

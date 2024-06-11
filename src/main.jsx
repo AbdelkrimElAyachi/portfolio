@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom/client'
 import { ThemeProvider } from 'styled-components';
 import { useState } from 'react';
 // imort style components
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
 import './index.css';
-import { theme } from './theme';
+import { lightTheme } from './theme.js';
 
 // import react rotuer
 import {
@@ -19,14 +17,14 @@ import {
 import App from "./routes/App.jsx";
 import Home from "./routes/Home.jsx";
 
-const router = (setLoading) => createBrowserRouter([
+const router = (setLoading, loading, setTheme) => createBrowserRouter([
   {
     path: "/",
-    element: <App setLoading={setLoading} />,
+    element: <App setLoading={setLoading} loading={loading} />,
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Home setTheme={setTheme} />
       }
     ]
   },
@@ -35,19 +33,12 @@ const router = (setLoading) => createBrowserRouter([
 
 function Root() {
   const [loading, setLoading] = useState(true);
-
+  const [theme, setTheme] = useState(lightTheme);
 
   return (
     <React.StrictMode>
       <ThemeProvider theme={theme}>
-        {loading ?
-          <Box sx={{ display: 'flex' }}>
-            <CircularProgress />
-          </Box>
-          :
-          null
-        }
-        <RouterProvider router={router(setLoading)} />
+        <RouterProvider router={router(setLoading, loading, setTheme)} />
       </ThemeProvider>
     </React.StrictMode>
   );
