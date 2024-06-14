@@ -41,6 +41,9 @@ const MobileNav = styled.header`
 
 const DesktopNav = styled.header`
   position: fixed;
+  background:${({ theme }) => theme.colors.background};
+  border-radius:25px;
+  backdrop-filter:blur(10px);
   margin-top: 0.6rem;
   padding: 0.4rem 1.2rem;
   width: 90%;
@@ -84,6 +87,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
+  cursor:pointer;
 `;
 
 const Line = styled.div`
