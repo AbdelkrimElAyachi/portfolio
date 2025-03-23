@@ -17,10 +17,10 @@ import {
 import App from "./routes/App.jsx";
 import Home from "./routes/Home.jsx";
 
-const router = (setLoading, loading, setTheme) => createBrowserRouter([
+const router = (setTheme) => createBrowserRouter([
   {
     path: "/",
-    element: <App setLoading={setLoading} loading={loading} />,
+    element: <App />,
     children: [
       {
         path: "/",
@@ -32,13 +32,12 @@ const router = (setLoading, loading, setTheme) => createBrowserRouter([
 
 
 function Root() {
-  const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState(lightTheme);
 
   return (
     <React.StrictMode>
       <ThemeProvider theme={theme}>
-        <RouterProvider router={router(setLoading, loading, setTheme)} />
+        <RouterProvider router={router(setTheme)} />
       </ThemeProvider>
     </React.StrictMode>
   );

@@ -1,3 +1,0 @@
-# Abdelkrim Portfolio
-
-Welcome
