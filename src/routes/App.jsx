@@ -9,8 +9,8 @@ export default function App() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(true);
-    }, 3000);
+      setIsLoading(false);
+    }, 2000);
     return () => {
       clearTimeout(timer);
     };
@@ -19,7 +19,7 @@ export default function App() {
   return (
     <>
       {isLoading?
-        <PageLoading />
+        <PageLoading barCount={6} duration={2} />
         :
         <>
           <Header />
