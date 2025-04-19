@@ -1,30 +1,27 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 function TextDynamic({ Words, duration }) {
-  const [index, setIndex] = useState(0);
+
+  const [index, setIndex] = useState(1);
   const [reverse, setReverse] = useState(false);
-  const indexRef = useRef(index);
-  const reverseRef = useRef(reverse);
+  const [curWord, setCurWord] = useState(Words[0]);
 
-  useEffect(() => {
-    indexRef.current = index;
-    reverseRef.current = reverse;
-  }, [index, reverse]);
+  const stateRef = useRef({index, reverse, curWord});
 
-  function callback() {
-    let newIndex;
-    if (Words.length - 1 == indexRef.current) {
-      setReverse(true);
+  function callback(){
+    if(stateRef.reverse){
+      setIndex((prev) => prev - 1);
+      if(stateRef.index === 0){
+        setReverse(false);
+        setCurWord(Words[Math.floor(Math.random() * Words.length)]);
+      }
     }
-    if (indexRef.current == 0) {
-      setReverse(false);
+    else{
+      setIndex((prev) => prev + 1);
+      if(stateRef.index === stateRef.curWord.length-1){
+        setReverse(true);
+      }
     }
-    if (reverseRef.current) {
-      newIndex = indexRef.current - 1;
-    } else {
-      newIndex = indexRef.current + 1;
-    }
-    setIndex(newIndex);
   }
 
   useEffect(() => {
@@ -33,12 +30,12 @@ function TextDynamic({ Words, duration }) {
     return () => {
       clearInterval(interval);
     };
-  }, [duration, Words.length, reverse]);
+  }, [duration, callback]);
 
   return (
     <div style={{ fontSize: '4rem', fontWeight: 'bold', width: '80%' }}>
       {/* Render your component UI here */}
-      <p>{Words.substring(0, index)}</p>
+      <p>{curWord.substring(0, index)}</p>
     </div>
   );
 }

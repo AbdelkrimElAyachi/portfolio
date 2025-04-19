@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components';
 
 const Container = styled.div`
   height: 100vh;
+  height: 100dvh;
   width: 100%;
   overflow: hidden;
   margin: 0;
@@ -10,45 +11,48 @@ const Container = styled.div`
 `;
 
 const buildAnimation = keyframes`
-  100% { top: 0; }
+  0% {top: -100%}
+  100% {}
 `;
 
-const StyledB = styled.b`
+const StyledB = styled.div`
   height: 100%;
   width: 100%;
-  position: absolute;
-  top: -101%;
-  animation: ${buildAnimation} 0.4s cubic-bezier(1, 1.02, 0.005, 1.02) forwards;
+  top: 0%;
+  z-index: 1;
 
-  &:nth-child(1) { animation-delay: 0.3s; }
-  &:nth-child(2) { animation-delay: 0.6s; }
-  &:nth-child(3) { animation-delay: 0.9s; }
-  &:nth-child(4) { animation-delay: 1.2s; }
-  &:nth-child(5) { animation-delay: 1.5s; }
-  &:nth-child(6) { animation-delay: 1.8s; }
-  &:nth-child(7) { animation-delay: 2.1s; }
-  &:nth-child(8) { animation-delay: 2.4s; }
+  & > *:nth-child(1) { animation: ${buildAnimation} calc(calc(3s/8)*1) ease-in-out forwards; }
+  & > *:nth-child(2) { animation: ${buildAnimation} calc(calc(3s/8)*2) ease-in-out forwards; }
+  & > *:nth-child(3) { animation: ${buildAnimation} calc(calc(3s/8)*3) ease-in-out forwards; }
+  & > *:nth-child(4) { animation: ${buildAnimation} calc(calc(3s/8)*4) ease-in-out forwards; }
+  & > *:nth-child(5) { animation: ${buildAnimation} calc(calc(3s/8)*5) ease-in-out forwards; }
+  & > *:nth-child(6) { animation: ${buildAnimation} calc(calc(3s/8)*6) ease-in-out forwards; }
+  & > *:nth-child(7) { animation: ${buildAnimation} calc(calc(3s/8)*7) ease-in-out forwards; }
+  & > *:nth-child(8) { animation: ${buildAnimation} calc(calc(3s/8)*8) ease-in-out forwards; }
 `;
 
-const StyledP = styled.p`
+const StyledP = styled.div`
   width: 100%;
-  height: 13%;
+  margin:0;
+  padding:0;
+  height: calc(100% / 8);
   background: ${({ theme }) => theme.colors.secondary};
   position: absolute;
-
 `;
 
 export default function PageLoading() {
   return (
     <Container>
-      <StyledB><StyledP style={{ bottom: 0 }} /></StyledB>
-      <StyledB><StyledP style={{ bottom: '12%' }} /></StyledB>
-      <StyledB><StyledP style={{ bottom: '25%' }} /></StyledB>
-      <StyledB><StyledP style={{ bottom: '37%' }} /></StyledB>
-      <StyledB><StyledP style={{ bottom: '50%' }} /></StyledB>
-      <StyledB><StyledP style={{ bottom: '62%' }} /></StyledB>
-      <StyledB><StyledP style={{ bottom: '75%' }} /></StyledB>
-      <StyledB><StyledP style={{ bottom: '87%' }} /></StyledB>
+      <StyledB>
+      <StyledP style={{ bottom: 'calc(calc(100%/8)*0)' }} />
+      <StyledP style={{ bottom: 'calc(calc(100%/8)*1)' }} />
+      <StyledP style={{ bottom: 'calc(calc(100%/8)*2)' }} />
+      <StyledP style={{ bottom: 'calc(calc(100%/8)*3)' }} />
+      <StyledP style={{ bottom: 'calc(calc(100%/8)*4)' }} />
+      <StyledP style={{ bottom: 'calc(calc(100%/8)*5)' }} />
+      <StyledP style={{ bottom: 'calc(calc(100%/8)*6)' }} />
+      <StyledP style={{ bottom: 'calc(calc(100%/8)*7)' }} />
+      </StyledB>
     </Container>
   );
 }

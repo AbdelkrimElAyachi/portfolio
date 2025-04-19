@@ -1,32 +1,8 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { ButtonOutlined, Background } from '../styles/common-components';
 
-const Background = styled.div`
-  background: ${({ theme }) => theme.colors.primary};
-  height: 100vh;
-  width: 100%;
-  color: ${({ theme }) => theme.colors.third};
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  &.active {
-    z-index: 2;
-    background: ${({ theme }) => theme.colors.background};
-    padding-top: 4rem;
-    justify-content: start;
-    font-size: 1.2rem;
-    text-align: left;
-    backdrop-filter: blur(20px);
-  }
-`;
 
 const MobileNav = styled.header`
   position: fixed;
@@ -52,35 +28,6 @@ const DesktopNav = styled.header`
   justify-content: space-between;
   align-items: center;
   z-index: 2;
-`;
-
-const ButtonOutlined = styled.button`
-  font-size: 1.4rem;
-  padding: 0.6rem 1.2rem;
-  border: solid ${({ theme }) => theme.colors.third} 1px;
-  color: ${({ theme }) => theme.colors.third};
-  background: none;
-  border-radius: 5px;
-  z-index: 1;
-  &:hover{
-    border: solid ${({ theme }) => theme.colors.hoverBackground} 1px;
-    color : ${({ theme }) => theme.colors.hoverBackground};
-    cursor:pointer;
-  }
-`;
-
-const ButtonContained = styled.button`
-  font-size: 1.4rem;
-  padding: 0.6rem 1.2rem;
-  color: ${({ theme }) => theme.colors.third};
-  background: ${({ theme }) => theme.colors.secondary};
-  border-radius: 5px;
-  border: solid ${({ theme }) => theme.colors.third} 1px;
-  z-index: 1;
-  &:hover{
-    background: ${({ theme }) => theme.colors.hoverBackground};
-    color:white;
-  }
 `;
 
 const Container = styled.div`
@@ -260,18 +207,6 @@ export default function Header() {
           </StyledList>
         </Background>
       ) : null}
-      <Background>
-        <h1>Full Stack Web Developpement And Responsive Design</h1>
-        <p style={{ fontWeight: 'bold', width: '80%', marginBottom: '2rem' }}>
-          Hey there! I'm a full-stack developer who loves bringing ideas to life. I can handle everything from designing in Figma and managing tasks in Jira to coding with tools like .NET, Laravel, Express, React, and Vue. I make sure the project fits the budget and gets smoothly hosted and live for everyone to see. Let's build something awesome together!
-        </p>
-        <ButtonOutlined>
-          <Link to="#">My Projects</Link>
-        </ButtonOutlined>
-        <ButtonContained>
-          <Link to="#">My Services</Link>
-        </ButtonContained>
-      </Background>
     </>
   );
 }
