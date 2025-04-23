@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useEffect } from 'react';
 import { lightTheme, darkTheme } from '../theme.js';
 import Background1 from '../assets/bg-home-1.jpg';
-import TextDynamic from '../components/TextDynamic.jsx';
+import DynamicText from '../components/DynamicText.jsx';
 import { Link } from 'react-router-dom';
 import { ButtonOutlined, ButtonContained, Background } from '../styles/common-components';
 
@@ -29,7 +29,6 @@ const Image = styled.img`
   }
 `
 const Div = styled.div`
-  flex:1;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -59,7 +58,7 @@ export default function Home({ setTheme }) {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [setTheme]);
+  }, []);
 
   return (
     <>      
@@ -78,7 +77,7 @@ export default function Home({ setTheme }) {
       <Container>
         <Image src={Background1} />
         <Div >
-          <TextDynamic Words={["About Me","Abdelkrim"]} duration={300} />
+          <DynamicText Words={["Welcome","Do you want","to know more","About me?"]} duration={300} />
           <p style={{ width: '80%' }}>a full stasck web developper from casablanca Morocco, Currently working as freelancer</p>
         </Div>
       </Container>

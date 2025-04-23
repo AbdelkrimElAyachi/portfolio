@@ -17,7 +17,7 @@ const MobileNav = styled.header`
 
 const DesktopNav = styled.header`
   position: fixed;
-  background:${({ theme }) => theme.colors.background};
+  background:${({ theme }) => theme.colors.background.normal};
   border-radius:25px;
   backdrop-filter:blur(10px);
   margin-top: 0.6rem;
@@ -40,7 +40,7 @@ const Container = styled.div`
 const Line = styled.div`
   height: 3px;
   width: 25px;
-  background: ${({ theme }) => theme.colors.third};
+  background: ${({ theme }) => theme.colors.text};
   transition: transform 0.3s; /* Add transition for smooth rotation */
 `;
 
@@ -74,9 +74,9 @@ const StyledListItem = styled.li`
   border-bottom: 1px solid white;
   padding-left: 1.3rem;
   transition: 0.3s;
-  color: ${({ theme }) => theme.colors.third};
+  color: ${({ theme }) => theme.colors.text};
   &:hover{
-    border-color:${({ theme }) => theme.colors.hoverBackground};
+    border-color:${({ theme }) => theme.colors.background.hover};
     margin-left:2rem;
   }
 `;
@@ -84,7 +84,7 @@ const StyledListItem = styled.li`
 
 const Item = styled.div`
   position: relative;
-  color: ${({ theme }) => theme.colors.third};
+  color: ${({ theme }) => theme.colors.text};
   & > button {
     margin: 0.5rem 0.8rem;
   }
@@ -92,7 +92,7 @@ const Item = styled.div`
     position: absolute;
     height: 3px;
     width: 100%;
-    background: ${({ theme }) => theme.colors.third};
+    background: ${({ theme }) => theme.colors.text};
     transition: 0.5s;
   }
   & > div.left {
@@ -104,10 +104,10 @@ const Item = styled.div`
     right: 0;
   }
   &:hover {
-    color: ${({ theme }) => theme.colors.hoverBackground};
+    // color: ${({ theme }) => theme.colors.background.hover};
   }
   &:hover div {
-    background: ${({ theme }) => theme.colors.hoverBackground};
+    background: ${({ theme }) => theme.colors.background.hover};
     width: 3px;
     height: 100%;
   }

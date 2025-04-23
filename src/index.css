@@ -1,8 +1,7 @@
+/* resets and global styles */
 body{
     font-family: system-ui;
 }
-
-
 *{ 
     margin: 0; 
     padding: 0; 
