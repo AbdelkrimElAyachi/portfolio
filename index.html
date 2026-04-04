@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abdelkrim El Ayachi — Developer &amp; QA Tester</title>
+    <meta
+      name="description"
+      content="I build things for the web and break them on purpose. Developer and QA Tester focused on reliable, real-time web applications."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Language Toggle -->
+    <div class="lang-toggle" aria-label="Language switcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <span class="lang-sep">/</span>
+      <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+
+    <!-- Floating Page Index -->
+    <nav class="page-index" aria-label="Page navigation">
+      <ol>
+        <li>
+          <a href="#landing" class="index-link active" data-section="landing"
+            ><span class="index-dot"></span
+            ><span class="index-label" data-i18n="nav.top">Top</span></a
+          >
+        </li>
+        <li>
+          <a href="#work" class="index-link" data-section="work"
+            ><span class="index-dot"></span
+            ><span class="index-label" data-i18n="nav.work">Work</span></a
+          >
+        </li>
+        <li>
+          <a href="#lab" class="index-link" data-section="lab"
+            ><span class="index-dot"></span
+            ><span class="index-label" data-i18n="nav.lab">Lab</span></a
+          >
+        </li>
+        <li>
+          <a href="#approach" class="index-link" data-section="approach"
+            ><span class="index-dot"></span
+            ><span class="index-label" data-i18n="nav.approach">Approach</span></a
+          >
+        </li>
+        <li>
+          <a href="#lessons" class="index-link" data-section="lessons"
+            ><span class="index-dot"></span
+            ><span class="index-label" data-i18n="nav.lessons">Lessons</span></a
+          >
+        </li>
+        <li>
+          <a href="#personal" class="index-link" data-section="personal"
+            ><span class="index-dot"></span
+            ><span class="index-label" data-i18n="nav.me">Me</span></a
+          >
+        </li>
+      </ol>
+    </nav>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- LANDING -->
+    <!-- ═══════════════════════════════════════ -->
+    <section id="landing" class="section section--landing">
+      <div class="landing-content">
+        <p class="landing-greeting" data-i18n="landing.greeting">Hi, I'm</p>
+        <h1 class="landing-name">Abdelkrim<br />El Ayachi</h1>
+        <p class="landing-tagline" data-i18n="landing.tagline">
+          I build things for the web and break them on purpose.
+        </p>
+        <p class="landing-sub" data-i18n="landing.sub">
+          Developer &amp; QA Tester — I write code, then I make sure it actually
+          works.
+        </p>
+        <a href="CV.pdf" download class="btn-download-cv">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          <span data-i18n="landing.cv">Download CV</span>
+        </a>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">
+        <span class="scroll-hint-line"></span>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- THINGS I'VE BUILT -->
+    <!-- ═══════════════════════════════════════ -->
+    <section id="work" class="section section--work">
+      <header class="section-header">
+        <span class="section-number">01</span>
+        <h2 class="section-title parallax-title" data-i18n="work.title">Things I've Built</h2>
+      </header>
+
+      <!-- Project: fingerWorkout -->
+      <article class="project">
+        <div class="project-header">
+          <h3 class="project-name">fingerWorkout</h3>
+          <p class="project-tech">
+            Vue.js · Express · Socket.io · Redis · MongoDB
+          </p>
+        </div>
+
+        <div class="project-story">
+          <div class="story-block">
+            <span class="story-label" data-i18n="fw.label.problem">The Problem</span>
+            <p data-i18n="fw.problem">
+              Typing practice tools are boring and solo. You grind through
+              exercises alone, with no reason to come back. There's no energy,
+              no stakes.
+            </p>
+          </div>
+
+          <div class="story-block">
+            <span class="story-label" data-i18n="fw.label.thinking">The Thinking</span>
+            <p data-i18n="fw.thinking">
+              What if typing practice felt like a race? Real-time, multiplayer,
+              with live scores updating as you type. Make it competitive and
+              people will actually practice.
+            </p>
+          </div>
+
+          <div class="story-block">
+            <span class="story-label" data-i18n="fw.label.built">What I Built</span>
+            <p data-i18n="fw.built">
+              A real-time multiplayer typing app with live rooms, instant score
+              updates via WebSockets, and dynamic content pulled from the
+              Wikipedia API so you're never typing the same thing twice. Redis
+              handles caching, JWT handles auth.
+            </p>
+          </div>
+
+          <div class="story-block">
+            <span class="story-label" data-i18n="fw.label.tradeoffs">Tradeoffs</span>
+            <p data-i18n="fw.tradeoffs">
+              Chose Redis over persistent storage for session data — speed
+              mattered more than durability here. Used Socket.io instead of raw
+              WebSockets for automatic reconnection and fallback support. Worth
+              the extra bundle size.
+            </p>
+          </div>
+
+          <div class="story-block">
+            <span class="story-label" data-i18n="fw.label.change">What I'd Change</span>
+            <p data-i18n="fw.change">
+              Better error handling on socket disconnects — users sometimes get
+              stuck in ghost rooms. I'd also add persistent leaderboards instead
+              of session-only rankings, and rethink the room cleanup logic.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <hr class="project-divider" />
+
+      <!-- Project: YouTube Stream Downloader -->
+      <article class="project">
+        <div class="project-header">
+          <h3 class="project-name">YouTube Stream Downloader</h3>
+          <p class="project-tech">Python · pytubefix · FFmpeg · pywebview</p>
+        </div>
+
+        <div class="project-story">
+          <div class="story-block">
+            <span class="story-label" data-i18n="yt.label.problem">The Problem</span>
+            <p data-i18n="yt.problem">
+              Every YouTube downloader I tried was either bloated with ads,
+              sketchy, or gave you low-quality output. I just wanted the best
+              quality without the noise.
+            </p>
+          </div>
+
+          <div class="story-block">
+            <span class="story-label" data-i18n="yt.label.thinking">The Thinking</span>
+            <p data-i18n="yt.thinking">
+              YouTube serves audio and video as separate streams at the highest
+              quality. If I download them separately and merge with FFmpeg, I
+              get the best possible result with a simple pipeline.
+            </p>
+          </div>
+
+          <div class="story-block">
+            <span class="story-label" data-i18n="yt.label.built">What I Built</span>
+            <p data-i18n="yt.built">
+              A lightweight desktop app that downloads the highest quality audio
+              and video streams separately, merges them with FFmpeg, and gives
+              you a clean output. No accounts, no ads, no bloat.
+            </p>
+          </div>
+
+          <div class="story-block">
+            <span class="story-label" data-i18n="yt.label.tradeoffs">Tradeoffs</span>
+            <p data-i18n="yt.tradeoffs">
+              Used pytubefix over the original pytube — more reliable but less
+              documented. Went with a desktop UI (pywebview) instead of a web
+              app because this is a personal tool, not a product. Simplicity
+              won.
+            </p>
+          </div>
+
+          <div class="story-block">
+            <span class="story-label" data-i18n="yt.label.change">What I'd Change</span>
+            <p data-i18n="yt.change">
+              Add batch downloading, a more accurate progress bar (FFmpeg
+              doesn't make this easy), and maybe a queue system for large
+              downloads.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <hr class="project-divider" />
+
+      <!-- Project: YouTube Auto-Pauser -->
+      <article class="project project--small">
+        <div class="project-header">
+          <h3 class="project-name">YouTube Auto-Pauser</h3>
+          <p class="project-tech">Browser Extension · JavaScript</p>
+        </div>
+        <div class="project-story">
+          <div class="story-block">
+            <span class="story-label" data-i18n="yp.label">Quick Experiment</span>
+            <p data-i18n="yp.text">
+              A browser extension that automatically pauses YouTube videos when
+              you switch tabs. Small, useful, and scratched a personal itch.
+              Built it in an afternoon, then spent another afternoon making it
+              work on Firefox too.
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- THE LAB -->
+    <!-- ═══════════════════════════════════════ -->
+    <section id="lab" class="section section--lab">
+      <header class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title parallax-title" data-i18n="lab.title">The Lab</h2>
+        <p class="section-subtitle" data-i18n="lab.subtitle">
+          Experiments, half-baked ideas, and things I'm poking at.
+        </p>
+      </header>
+
+      <div class="lab-grid">
+        <div class="lab-note" style="--rotation: -1.5deg">
+          <span class="lab-note-status lab-note-status--active" data-i18n="lab.status.exploring">exploring</span>
+          <h4 data-i18n="lab.vrt.title">Visual Regression Testing</h4>
+          <p data-i18n="lab.vrt.text">
+            Using Playwright to catch UI drift between deployments. Comparing
+            screenshots pixel-by-pixel is crude but surprisingly effective for
+            catching CSS regressions that humans miss.
+          </p>
+        </div>
+
+        <div class="lab-note" style="--rotation: 0.8deg">
+          <span class="lab-note-status lab-note-status--thinking" data-i18n="lab.status.thinking"
+            >thinking</span
+          >
+          <h4 data-i18n="lab.ws.title">WebSocket Reconnection</h4>
+          <p data-i18n="lab.ws.text">
+            Exponential backoff with jitter? Or just let Socket.io handle it?
+            Digging into what happens when your multiplayer room loses
+            connection mid-race and how to recover gracefully.
+          </p>
+        </div>
+
+        <div class="lab-note" style="--rotation: -0.5deg">
+          <span class="lab-note-status lab-note-status--reading" data-i18n="lab.status.reading">reading</span>
+          <h4 data-i18n="lab.ca.title">Clean Architecture in Express</h4>
+          <p data-i18n="lab.ca.text">
+            Trying to separate concerns in Node.js backends without making it
+            feel like enterprise Java. The sweet spot between "everything in one
+            file" and "12 abstraction layers" is hard to find.
+          </p>
+        </div>
+
+        <div class="lab-note" style="--rotation: 1.2deg">
+          <span class="lab-note-status lab-note-status--building" data-i18n="lab.status.building"
+            >building</span
+          >
+          <h4 data-i18n="lab.docker.title">Docker for Dev Environments</h4>
+          <p data-i18n="lab.docker.text">
+            Setting up reproducible development environments so "works on my
+            machine" stops being an excuse. Basic Compose files for MongoDB +
+            Redis + Node stacks.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- HOW I WORK -->
+    <!-- ═══════════════════════════════════════ -->
+    <section id="approach" class="section section--approach">
+      <header class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title parallax-title" data-i18n="approach.title">How I Work</h2>
+      </header>
+
+      <div class="approach-grid">
+        <div class="approach-column">
+          <h3 class="approach-heading" data-i18n="approach.good">What I'm good at</h3>
+          <ul class="approach-list">
+            <li data-i18n="approach.good.1">
+              Testing things until they break — and knowing why they broke
+            </li>
+            <li data-i18n="approach.good.2">Building real-time features that actually feel responsive</li>
+            <li data-i18n="approach.good.3">
+              Connecting frontend to backend cleanly, without over-engineering
+              the glue
+            </li>
+            <li data-i18n="approach.good.4">
+              Automating the boring stuff so humans can focus on the interesting
+              stuff
+            </li>
+          </ul>
+        </div>
+
+        <div class="approach-column">
+          <h3 class="approach-heading" data-i18n="approach.avoid">What I avoid</h3>
+          <ul class="approach-list approach-list--avoid">
+            <li data-i18n="approach.avoid.1">Over-engineering solutions before the problem is clear</li>
+            <li data-i18n="approach.avoid.2">
+              Premature abstraction — if it's used once, it doesn't need a
+              factory
+            </li>
+            <li data-i18n="approach.avoid.3">Frameworks for the sake of frameworks</li>
+            <li data-i18n="approach.avoid.4">
+              Writing tests that test the testing framework, not the product
+            </li>
+          </ul>
+        </div>
+
+        <div class="approach-column approach-column--full">
+          <h3 class="approach-heading" data-i18n="approach.philosophy.title">How I think about building things</h3>
+          <p class="approach-philosophy" data-i18n="approach.philosophy">
+            Start simple. Test early. Refactor when it hurts — not before. I'd
+            rather ship something that works and improve it than architect
+            something perfect that never launches. Code is meant to be changed;
+            the first version is never the last.
+          </p>
+        </div>
+
+        <div class="approach-column approach-column--full">
+          <h3 class="approach-heading" data-i18n="approach.tools">Current tools</h3>
+          <div class="tool-tags">
+            <span class="tool-tag">JavaScript</span>
+            <span class="tool-tag">Vue.js</span>
+            <span class="tool-tag">Node.js</span>
+            <span class="tool-tag">Express</span>
+            <span class="tool-tag">Laravel</span>
+            <span class="tool-tag">Playwright</span>
+            <span class="tool-tag">MongoDB</span>
+            <span class="tool-tag">MySQL</span>
+            <span class="tool-tag">Redis</span>
+            <span class="tool-tag">Git</span>
+            <span class="tool-tag">Linux</span>
+            <span class="tool-tag">Docker</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- LESSONS & FAILURES -->
+    <!-- ═══════════════════════════════════════ -->
+    <section id="lessons" class="section section--lessons">
+      <header class="section-header">
+        <span class="section-number">04</span>
+        <h2 class="section-title parallax-title" data-i18n="lessons.title">Lessons I Paid For</h2>
+      </header>
+
+      <div class="lessons-list">
+        <article class="lesson">
+          <span class="lesson-icon">×</span>
+          <div class="lesson-content">
+            <h4 data-i18n="lessons.deleted.title">The day I deleted a project folder</h4>
+            <p data-i18n="lessons.deleted.text">
+              Accidentally wiped a project directory that had a
+              <code>.git</code> repo — and no remote. Lost days of work. Now I
+              push early and often, even on throwaway experiments. Backups
+              aren't paranoia, they're professionalism.
+            </p>
+          </div>
+        </article>
+
+        <article class="lesson">
+          <span class="lesson-icon">×</span>
+          <div class="lesson-content">
+            <h4 data-i18n="lessons.scope.title">Scope is the real enemy</h4>
+            <p data-i18n="lessons.scope.text">
+              Spent weeks building an e-learning platform prototype — real-time
+              classrooms, video streaming, the works. It was too much for one
+              person. Learned that the hardest skill isn't building; it's
+              deciding what not to build.
+            </p>
+          </div>
+        </article>
+
+        <article class="lesson">
+          <span class="lesson-icon">×</span>
+          <div class="lesson-content">
+            <h4 data-i18n="lessons.tests.title">Fast tests that lie</h4>
+            <p data-i18n="lessons.tests.text">
+              Built a Playwright test suite that ran in 2 minutes flat. Felt
+              great — until I realized half the tests were flaky and passing by
+              accident. Speed without reliability is just noise. Rewrote them
+              all with proper waits and assertions.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PERSONAL -->
+    <!-- ═══════════════════════════════════════ -->
+    <section id="personal" class="section section--personal">
+      <header class="section-header">
+        <span class="section-number">05</span>
+        <h2 class="section-title parallax-title" data-i18n="personal.title">A Bit More</h2>
+      </header>
+
+      <div class="personal-grid">
+        <div class="personal-block">
+          <h3 data-i18n="personal.tools.title">Tools I love</h3>
+          <p data-i18n="personal.tools.text">
+            VS Code with a minimal setup, Linux for everything, Firefox DevTools
+            for debugging, and the terminal for anything that doesn't need a
+            GUI. I like tools that get out of the way.
+          </p>
+        </div>
+
+        <div class="personal-block">
+          <h3 data-i18n="personal.focus.title">Current focus</h3>
+          <p data-i18n="personal.focus.text">
+            Pursuing an engineering degree in Computer Science. Going deeper
+            into architecture patterns, system design, and figuring out how to
+            write code that future-me won't hate.
+          </p>
+        </div>
+
+        <div class="personal-block personal-block--timeline">
+          <h3 data-i18n="personal.path.title">The path so far</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-year">2022</span>
+              <span class="timeline-event" data-i18n="personal.timeline.2022"
+                >Started Digital Development diploma</span
+              >
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2023</span>
+              <span class="timeline-event" data-i18n="personal.timeline.2023"
+                >First internship — built WordPress sites at Albri Web</span
+              >
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2024</span>
+              <span class="timeline-event" data-i18n="personal.timeline.2024"
+                >QA Tester at Involys · Bachelor's in CS</span
+              >
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2025</span>
+              <span class="timeline-event" data-i18n="personal.timeline.2025"
+                >Engineering degree — going deeper</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        <div class="footer-links">
+          <a
+            href="https://github.com/AbdelkrimElAyachi"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+              />
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a
+            href="https://linkedin.com/in/abdelkrimdevelopper"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              />
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+        <p class="footer-note" data-i18n="footer.note">
+          Built by hand with vanilla HTML, CSS, and JS. No frameworks were
+          harmed.
+        </p>
+      </footer>
+    </section>
+
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
